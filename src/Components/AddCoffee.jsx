@@ -18,7 +18,7 @@ const AddCoffee = () => {
 	const newCoffee = {name,quantity,supplier,taste,category,details,photo}
 	console.log(newCoffee);
 
-	// send data to the server
+	// send data to the server (CREATE Operation)
 	fetch('http://localhost:5000/coffee',{   // net::ERR_CONNECTION_REFUSED  // MongoNotConnectedError: Client must be connected before running operations
 		method: 'POST',
 		headers: {
