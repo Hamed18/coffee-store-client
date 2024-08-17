@@ -1,3 +1,5 @@
+import Swal from 'sweetalert2'
+
 const AddCoffee = () => {
   const handleAddCoffee = event => {
 	event.preventDefault();
@@ -17,16 +19,25 @@ const AddCoffee = () => {
 	console.log(newCoffee);
 
 	// send data to the server
-	fetch('http://localhost:4000/coffee',{   // net::ERR_CONNECTION_REFUSED  // MongoNotConnectedError: Client must be connected before running operations
+	fetch('http://localhost:5000/coffee',{   // net::ERR_CONNECTION_REFUSED  // MongoNotConnectedError: Client must be connected before running operations
 		method: 'POST',
 		headers: {
 			'content-type' : 'application/json'
 		},
 		body: JSON.stringify(newCoffee)
 	})
-	    .then(res => res.json())
+	  .then(res => res.json())
 		.then(data => {
 		   console.log(data);
+       if (data.insertedId){
+        Swal.fire({
+          title: "Success",
+          text: "User Added Successfully",
+          icon: "success",
+          confirmButtonText: 'cool'
+        });
+       }
+    
 		})
 
   }
@@ -47,10 +58,10 @@ const AddCoffee = () => {
         </div>
         <div>
           <label className="input input-bordered flex items-center gap-2">
-		  quantity
+		        quantity
             <input
               type="text"
-			  name="quantity"
+			        name="quantity"
               className="grow"
               placeholder="Enter Coffee quantity" />
           </label>
@@ -63,7 +74,7 @@ const AddCoffee = () => {
             Supplier
             <input
               type="text"
-			  name="supplier"
+			        name="supplier"
               className="grow"
               placeholder="Enter Coffee Supplier" />
           </label>
@@ -73,7 +84,7 @@ const AddCoffee = () => {
             Taste
             <input
               type="text"
-			  name="taste"
+			        name="taste"
               className="grow"
               placeholder="Enter Coffee Taste" />
           </label>
@@ -86,7 +97,7 @@ const AddCoffee = () => {
             Category
             <input
               type="text"
-			  name="category"
+			        name="category"
               className="grow"
               placeholder="Enter Coffee Category" />
           </label>
@@ -96,7 +107,7 @@ const AddCoffee = () => {
             Details
             <input
               type="text"
-			  name="details"
+			        name="details"
               className="grow"
               placeholder="Enter Coffee detais" />
           </label>
@@ -108,10 +119,9 @@ const AddCoffee = () => {
             Photo
             <input
               type="text"
-			  name="photo"
-              className="grow"
-              placeholder="Enter Photo URL" 
-			  className="w-full"/>
+			        name="photo"
+              className="grow w-full"
+              placeholder="Enter Photo URL" />
           </label>
       </div>
 	  <button className="btn btn-neutral flex justify-center items-center">Neutral</button>
