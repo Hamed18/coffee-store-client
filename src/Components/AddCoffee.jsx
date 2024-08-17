@@ -1,11 +1,10 @@
 import Swal from 'sweetalert2'
 
 const AddCoffee = () => {
+
   const handleAddCoffee = event => {
 	event.preventDefault();
-
 	const form = event.target;
-
 	const name = form.name.value;
 	const quantity = form.quantity.value;
 	const supplier = form.supplier.value;
@@ -41,6 +40,7 @@ const AddCoffee = () => {
 		})
 
   }
+  
   return (
     <div className="max-w-6xl ">
       <h3 className="text-center">Add Coffee</h3>
