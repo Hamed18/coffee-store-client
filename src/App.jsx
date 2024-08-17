@@ -1,17 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useLoaderData } from 'react-router-dom'
 import './App.css'
+import CoffeeCard from './Components/CoffeeCard';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const coffees = useLoaderData();
 
   return (
-    <>
-      <div>
-          <p className='text-center'>This is coffee store client side</p>
+      <div className='m-20'>
+          <p className='text-center'>cold coffee: {coffees.length} </p>
+          <div className="grid md:grid-cols-2 gap-4">
+          {
+            coffees.map(coffee => 
+            <CoffeeCard key={coffee._id} coffee={coffee}></CoffeeCard>)
+          }
+          </div>
       </div>
-    </>
   )
 }
 
