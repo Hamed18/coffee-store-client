@@ -2,6 +2,7 @@ import { useLoaderData } from 'react-router-dom'
 import './App.css'
 import CoffeeCard from './Components/CoffeeCard';
 import { useState } from 'react';
+import Header from './Components/Header';
 
 function App() {
   const loadedCoffees = useLoaderData();
@@ -9,6 +10,7 @@ function App() {
 
   return (
       <div className='m-20'>
+          <Header></Header>
           <p className='text-center'>cold coffee: {coffees.length} </p>
           <div className="grid md:grid-cols-2 gap-4">
           {

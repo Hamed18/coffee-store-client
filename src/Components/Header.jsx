@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
 	return (
-		<div>
+		<div className="flex justify-around my-5 text-green-500">
 			<NavLink to='/'>Home</NavLink>
 			<NavLink to='/users'>Users</NavLink>
 			<NavLink to='/signup'>Sign Up</NavLink>

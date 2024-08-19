@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../Components/Provider/AuthProvider";
+import Header from "./Header";
 const SignUp = () => {
   const {createUser} = useContext(AuthContext);
 
@@ -41,6 +42,7 @@ const SignUp = () => {
 
   return (
         <div>
+		  <Header></Header>
           <h2 className="text-3xl my-10 text-center font-bold">Please Login</h2>
           <form onSubmit={handleSignUp} className="md:w-3/4 lg:w-1/2 mx-auto">
             <div className="form-control">
